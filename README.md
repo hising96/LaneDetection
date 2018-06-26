@@ -20,6 +20,17 @@ We also downsize the images to reduce the training time.
 
 Since there are unequal instances of each class in dataset we balance classes using class weighting.
 
+Download pre-trained Segnet link
+https://www.mathworks.com/supportfiles/vision/data/segnetVGG16CamVid.mat
+
+Download images dataset
+http://web4.cs.ucl.ac.uk/staff/g.brostow/MotionSegRecData/files/701_StillsRaw_full.zip
+
+Download images label dataset
+http://web4.cs.ucl.ac.uk/staff/g.brostow/MotionSegRecData/data/LabeledApproved_full.zip
+
+Testing on more real world datasets like MapillaryVistas, Apollo, Kitti is under process and results will be updated soon.
+
 Feel free to contribute and extend the scope to the project:)
 
 

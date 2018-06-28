@@ -142,12 +142,8 @@ end
 function imds = resizeCamVidImages(imds, imageFolder)
 % Resize images to [360 480].
 
-if ~exist(imageFolder,'dir') 
-    mkdir(imageFolder)
-else
-    imds = imageDatastore(imageFolder);
-    return; % Skip if images already resized
-end
+imds = imageDatastore(imageFolder);
+return; % Skip if images already resized
 
 reset(imds)
 while hasdata(imds)
@@ -172,12 +168,8 @@ function pxds = resizeCamVidPixelLabels(pxds, labelFolder)
 
 classes = pxds.ClassNames;
 labelIDs = 1:numel(classes);
-if ~exist(labelFolder,'dir')
-    mkdir(labelFolder)
-else
-    pxds = pixelLabelDatastore(labelFolder,classes,labelIDs);
-    return; % Skip if images already resized
-end
+pxds = pixelLabelDatastore(labelFolder,classes,labelIDs);
+return; % Skip if images already resized
 
 reset(pxds)
 while hasdata(pxds)
@@ -199,9 +191,7 @@ end
 labelIDs = 1:numel(classes);
 pxds = pixelLabelDatastore(labelFolder,classes,labelIDs);
 end
-%% 
-% 
-
+ 
 function [imdsTrain, imdsTest, pxdsTrain, pxdsTest] = partitionCamVidData(imds,pxds)
 % Partition CamVid data by randomly selecting 60% of the data for training. The
 % rest is used for testing.
